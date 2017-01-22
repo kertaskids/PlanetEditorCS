@@ -32,21 +32,62 @@ namespace PlanetEditorCS
                     
                     }catch (Exception e)
                     {
+                        if (p != null) {
+                            p = null;
+                        }
                         Console.WriteLine("{0} You shall not pass!!.", e);
                     }
 
                 }
                 else if (command.Equals("ac")) {
-
+                    string c_type;
+                    string name;
+                    string[] input = System.Console.ReadLine().Split(' ');
+                    c_type = input[0];
+                    name = input[1];
+                    Object optr;
+                    if (c_type == "Lion") {
+                        optr = new Creature<Lion>(name)._object;
+                    }
+                    else if (c_type == "Plant"){
+                        optr = new Creature<Plant>(name)._object;
+                    }else {
+                        System.Console.WriteLine("You shall not pass!");
+                        continue;
+                    }
+                    
+                    if (p == null)
+                    {
+                        System.Console.WriteLine("Please create planet first!");
+                        continue;
+                    }else {
+                        p.addObject(optr);
+                        System.Console.WriteLine(optr.getName()+" added");
+                    }
                 }
                 else if (command.Equals("ro")) {
-
+                    uint id;
+                    id = uint.Parse(System.Console.ReadLine());
+                    if (p == null){
+                        System.Console.WriteLine("Please create planet first!");
+                    }
+                    else {
+                        p.Update();
+                    }
                 }
-                else if (command.Equals("up")) { 
-                
+                else if (command.Equals("up")) {
+                    if (p == null)
+                    {
+                        System.Console.WriteLine("Please create planet first!");
+                    }
+                    else
+                    {
+                        p.Update();
+                    }
                 }
             }
 
+            //System.Console.ReadKey();
             return;
         }
     }
