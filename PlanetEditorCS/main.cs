@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Globalization;
 
 namespace PlanetEditorCS
 {
@@ -17,6 +18,22 @@ namespace PlanetEditorCS
             while (!command.Equals("exit")) // Loop indefinitely
             {
                 if (command.Equals("cp")) {
+                    float r;
+                    Coordinate pos;
+                    String name;
+                    string[] input = System.Console.ReadLine().Split(' ');
+                    name = input[0];
+                    pos = new Coordinate(float.Parse(input[1]), float.Parse(input[2]), float.Parse(input[3]));
+                    r = float.Parse(input[4]);
+
+                    try{
+                        p = new Planet(name, pos, r);
+                        System.Console.WriteLine(p.obj.getName() + " has been created.");
+                    
+                    }catch (Exception e)
+                    {
+                        Console.WriteLine("{0} You shall not pass!!.", e);
+                    }
 
                 }
                 else if (command.Equals("ac")) {
