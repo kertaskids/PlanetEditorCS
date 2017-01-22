@@ -10,12 +10,11 @@ namespace PlanetEditorCS
     {
         private Coordinate _position;
         private float _radius;
-        private Object obj;
+        public Object obj;
         //public static List<Object> ObjPtr; //* 
         private bool radiusCheck() { return _radius > 0.0f; }
 
         public Planet() { }
-        
         public Planet(Planet src) { //*
             obj = new Object(src.obj.getName());
             foreach (Object op in src.obj.getO())

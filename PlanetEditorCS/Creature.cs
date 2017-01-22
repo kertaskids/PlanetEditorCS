@@ -16,16 +16,16 @@ namespace PlanetEditorCS
         public virtual int Birth() { return 0; }
     }
 
-    class Creature
+    class Creature <T>
     {
-        private Object _object; //*
+        public Object _object; //*
         private int _p_implement = 0; //*
         private int _amount = 0;
         CreatureType creatureType = new CreatureType();
 
         public Creature();
         //overload operator
-        public Creature(Creature src) { //*
+        public Creature(Creature<T> src) { //*
             _object = new Object(src._object.getName());
             _amount = src._amount;
             _p_implement = src._p_implement;
