@@ -8,7 +8,7 @@ Answer for the question :
 2. **Constructor** : is a method to initialize the initial parameters when an object is going to be made. 
 3. **Destructor** : is a method to destructs the object when the object is not needed anymore. The goal is to recover the heap space allocated, close the database connection, or release another resource.
 4. **Interface** : interface is a structure that allows us to enforce certain properties on an object or class. Events, Delegates, Properties and Methods can exist; multiple interface can also be implemented on a class. 
-5. ***Polymorphism** : it’s simply the ability to redefine methods for derived classes. It is an ability to process objects differently depend on their data type or class. For example, a class Shape has derived classes such as Circle, Rect, Triangle.
+5. **Polymorphism** : it’s simply the ability to redefine methods for derived classes. It is an ability to process objects differently depend on their data type or class. For example, a class Shape has derived classes such as Circle, Rect, Triangle.
 6. **Template** : is a generic class or other unit (function) of source code that can be used as the basis for unique units of code. For example, in vector function, there are vector<int> and vector<float>. 
 7. *
 8. **Std :: shared_ptr**
