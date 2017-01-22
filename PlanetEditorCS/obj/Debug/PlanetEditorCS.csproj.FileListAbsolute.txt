@@ -1,0 +1,6 @@
+E:\Bagus\Workspace\GitHub\PlanetEditor-c#\PlanetEditorCS\PlanetEditorCS\bin\Debug\PlanetEditorCS.exe.config
+E:\Bagus\Workspace\GitHub\PlanetEditor-c#\PlanetEditorCS\PlanetEditorCS\bin\Debug\PlanetEditorCS.exe
+E:\Bagus\Workspace\GitHub\PlanetEditor-c#\PlanetEditorCS\PlanetEditorCS\bin\Debug\PlanetEditorCS.pdb
+E:\Bagus\Workspace\GitHub\PlanetEditor-c#\PlanetEditorCS\PlanetEditorCS\obj\Debug\PlanetEditorCS.csprojResolveAssemblyReference.cache
+E:\Bagus\Workspace\GitHub\PlanetEditor-c#\PlanetEditorCS\PlanetEditorCS\obj\Debug\PlanetEditorCS.exe
+E:\Bagus\Workspace\GitHub\PlanetEditor-c#\PlanetEditorCS\PlanetEditorCS\obj\Debug\PlanetEditorCS.pdb
