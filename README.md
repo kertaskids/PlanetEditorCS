@@ -1,7 +1,7 @@
 # PlanetEditorCS
 A Homework for converting c++ code to c#. 
 
-Anser for the question : 
+Answer for the question : 
 21 January 2017
  
 1.  **Class** : is a general template which contains of operations (methods) and properties (variables) of particular object. Therefore object is a specific instance of a class which contains real-time values. 
