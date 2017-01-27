@@ -21,39 +21,56 @@ namespace PlanetEditorCS
     class Creature <T> : Object
     {
         //-----PROPERTIES-----//
-        public Object _object; //*
-        private int _p_implement = 0; //*
+        private static Creature<T> _instance;
+        public static Creature<T> Instance
+        {
+            get
+            {
+                return _instance ?? (_instance = new Creature<T>());
+            }
+        }
+
+        private T _p_implement = default(T); //*
         private int _amount = 0;
         CreatureType creatureType = new CreatureType();
 
         //-----METHODS-----//
-        public Creature();
-        //overload operator
+        public Creature() {
+            if (_instance == null)
+            {
+                _instance = this;
+            }
+        }
+        /*
+        Operator = can't be overloaded 
+         */
+
         public Creature(Creature<T> src) { //*
-            _object = new Object(src._object.getName());
+            Object(src.getName());
             _amount = src._amount;
-            _p_implement = src._p_implement;
+            _p_implement = src._p_implement; 
         }
 
-        public Creature(String name) { //*
-            _object = new Object(name);
+        public Creature(string name) { //*
+            Object(name);
+            _p_implement = Creature<T>.Instance._p_implement;
         }
 
         public virtual ~Creature() {
-            if (_p_implement != 0){ //null) {
-                _p_implement = 0;
+            if (_p_implement != null){ //* ; null) {
+                _p_implement = default(T);
             }
         }
 
         public virtual void Update() { //*
-            creatureType.Move();
-            creatureType.Absorb();
-            _amount -= creatureType.DeadOrAlive();
+            Instance.creatureType.Move();
+            Instance.creatureType.Absorb();
+            _amount -= Instance.creatureType.DeadOrAlive();
+            
             if (creatureType.Alive()) {
                 _amount += creatureType.Birth();
                 _amount = _amount < 0 ? 0 : _amount;
             }
         }
     }
-
 }

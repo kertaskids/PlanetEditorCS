@@ -20,7 +20,12 @@ namespace PlanetEditorCS
         private static uint s_next_ID = 0;
         private uint _ID;
         private string _Name;
-        public static List<Object> ObjPtr; //* ; unsafe instead
+        
+        //public static List<Object> ObjPtr; //affects planet.cs L16  //* ; unsafe instead
+        public struct ObjPtr : IEnumerable<Object>
+        {
+            public List<Object> ObjPt;
+        };
 
         //-----METHODS-----//
         public Object(){
@@ -44,8 +49,18 @@ namespace PlanetEditorCS
             _ID = s_next_ID++;
             _Name = name;
         }
-
+        public void Object(string name)
+        {
+            _ID = s_next_ID++;
+            _Name = name;
+        }
+        
         public Object(Object src) {
+            _Name = src._Name;
+            _ID = s_next_ID++;
+        }
+        public void Object(Object src)
+        {
             _Name = src._Name;
             _ID = s_next_ID++;
         }
