@@ -3,59 +3,65 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.UInt32;
 
 namespace PlanetEditorCS
 {
     class Object
     {
-        private static Object instance = null;
-        public static Object _Instance
+        //-----PROPERTIES-----//
+        private static Object _instance;
+        public static Object Instance
         {
-            get
-            {
-                return instance; //? ==null? instance : _Instance;
+            get {
+                return _instance ?? (_instance = new Object());
             }
         }
 
-        private static uint s_next_ID;
+        private static uint s_next_ID = 0;
         private uint _ID;
-        private String _Name;
+        private string _Name;
+        public static List<Object> ObjPtr; //* ; unsafe instead
 
+        //-----METHODS-----//
         public Object(){
-           // if (_Instance == null) {
-             //   instance = this;
-            //} //awlays be null?
+            if (_instance==null) {
+                _instance = this;
+            }
+        }
 
-        } //*
-        
+        /*
+         Object& operator=(const Object& src);
+        The operator= can't be overloaded. 
+        Ref : http://stackoverflow.com/questions/599367/why-can-not-be-overloaded-in-c
         public Object(Object src)
         {
             _Name = src._Name;
         }
-        
-        public Object(String name)
+         */
+
+        public Object(string name)
         {
-            _ID = s_next_ID;
+            _ID = s_next_ID++;
             _Name = name;
         }
 
         public Object(Object src) {
             _Name = src._Name;
-            _ID = s_next_ID;
+            _ID = s_next_ID++;
         }
 
-        /*public virtual Object Object()
-        {
-            return this;
-        }*/
+        public virtual ~Object() { } //* return this; }
 
-        public uint getID() { return _ID; } //*
-        public String getName() { return _Name; } //*
+        public uint getID() { 
+            return _ID; 
+        }
+
+        public string getName() { 
+            return _Name; 
+        } 
         
         public virtual void Update() {}
 
-        public static List<Object> ObjPtr; //* ; unsafe instead
-        public List<Object> getO() { return ObjPtr; }
+        //public List<Object> getO() { return ObjPtr; }
     }
 }
