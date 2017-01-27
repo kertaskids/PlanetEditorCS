@@ -11,8 +11,7 @@ namespace PlanetEditorCS
     {
         static void Main(string[] args)
         {
-            System.Console.WriteLine("Hello!");
-            String command = null;
+            string command = null;
             Planet p = null;
 
             while (!command.Equals("exit")) // Loop indefinitely
@@ -20,7 +19,7 @@ namespace PlanetEditorCS
                 if (command.Equals("cp")) {
                     float r;
                     Coordinate pos;
-                    String name;
+                    string name;
                     string[] input = System.Console.ReadLine().Split(' ');
                     name = input[0];
                     pos = new Coordinate(float.Parse(input[1]), float.Parse(input[2]), float.Parse(input[3]));
@@ -93,21 +92,22 @@ namespace PlanetEditorCS
     }
 
     class Lion : CreatureType {
-        virtual ~Lion() { }
-        virtual void move() { System.Console.WriteLine ("Run Run Run"); }
-        virtual void absorb() { System.Console.WriteLine("Eat Eat Eat"); }
-        virtual int deadOrAlive() { System.Console.WriteLine("Alive"); return 0; }
-        virtual bool alive() { return true; }
-        virtual int birth() { return 0; }
+        public Lion() { }
+        public virtual ~Lion() { }
+        public virtual void Move() { System.Console.WriteLine("Run Run Run"); }
+        public virtual void Absorb() { System.Console.WriteLine("Eat Eat Eat"); }
+        public virtual int DeadOrAlive() { System.Console.WriteLine("Alive"); return 0; }
+        public virtual bool Alive() { return true; }
+        public virtual int Birth() { return 0; }
     }
 
     class Plant : CreatureType {
-        Plant() { }
-        virtual ~Plant() { }
-        virtual void move() { System.Console.WriteLine("Plant cannot move :("); }
-        virtual void absorb() { System.Console.WriteLine("Growth"); }
-        virtual int deadOrAlive() { System.Console.WriteLine("Alive"); return 0; }
-        virtual bool alive() { return true; }
-        virtual int birth() { System.Console.WriteLine ("Spread seeds"); return 0; }
+        public Plant() { }
+        public virtual ~Plant() { }
+        public virtual void Move() { System.Console.WriteLine("Plant cannot move :("); }
+        public virtual void Absorb() { System.Console.WriteLine("Growth"); }
+        public virtual int DeadOrAlive() { System.Console.WriteLine("Alive"); return 0; }
+        public virtual bool Alive() { return true; }
+        public virtual int Birth() { System.Console.WriteLine("Spread seeds"); return 0; }
     } 
 }

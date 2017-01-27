@@ -6,34 +6,43 @@ using System.Threading.Tasks;
 
 namespace PlanetEditorCS
 {
-    class Planet
+    class Planet : Object
     {
+        //-----VARIABLES-----//
+        private bool radiusCheck() { return _radius > 0.0f; }
         private Coordinate _position;
         private float _radius;
-        public Object obj;
-        //public static List<Object> ObjPtr; //* 
-        private bool radiusCheck() { return _radius > 0.0f; }
 
+        public List<ObjPtr> ObjPtrs; //public static List<ObjectPtr> ObjPtrs; //* copy from the object class 
+
+        //-----METHODS-----//
         public Planet() { }
+
         public Planet(Planet src) { //*
-            obj = new Object(src.obj.getName());
-            foreach (Object op in src.obj.getO())
+            Object(src.getName());
+            foreach (ObjPtr op in src.ObjPtrs)
             {
-                obj.getO().Add(op);
+                ObjPtrs.Add(op);
             }
         }
 
         public Planet(String name, float radius) { //*
-            obj = new Object(name);
-            _position = new Coordinate();
-            _radius = radius;
-            if (!radiusCheck()) {
-                System.Console.WriteLine("Radius must be bigger than 0");
-            }
+            //handling an exception
+            try {
+                Object(name);
+                _position = new Coordinate();
+                _radius = radius;
+                
+                if (!radiusCheck()) {
+                    System.Console.WriteLine("Radius must be bigger than 0");
+                }
+            } catch (Exception e) {
+                Console.WriteLine(e);
+            }            
         }
 
         public Planet(String name, Coordinate position, float radius) { //*
-            obj = new Object(name);
+            Object(name);
             _position = position;
             _radius = radius;
             if (!radiusCheck())
@@ -49,23 +58,33 @@ namespace PlanetEditorCS
         public void setRadius(float radius) { //*
             _radius = radius;
         }
-        public void addObject(Object o) { //*
-            o.getO().Add(o);
+        public void addObject(ObjPtr ptr) { //*
+            ObjPtrs.Add(ptr);
         }
 
         public void removeObject(UInt32 id) { //*
-            foreach (Object o in obj.getO()) {
-                if (id == o.getID()) {
-                    obj.getO().Remove(o);
+            foreach (ObjPtr optrs in ObjPtrs) {
+                foreach (Object optr in optrs) {
+                    if (id == optr.getID()) {
+                        optrs.ObjPt.Remove(optr);
+                    }
                 }
             }
         }
+        /*public IEnumerator<ObjPtr> GetEnumerator(){
+            return ObjPtrs.GetEnumerator();
+            }*/
 
         public virtual void Update(){ //*
             //* later
-            foreach (Object o in obj.getO()) { 
-                System.Console.WriteLine(o.getID()+" "+o.getName());
-                o.Update();
+
+            foreach (ObjPtr optrs in ObjPtrs) {
+                foreach (Object optr in optrs) {
+                    //optrs.ObjPt.Remove(optr);
+                    System.Console.WriteLine("Obj ID : " + optr.getID() + ", Obj Name " + optr.getName());
+                    optr.Update();
+                    System.Console.WriteLine("");
+                }
             }
         }
     }
