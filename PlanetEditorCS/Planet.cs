@@ -14,7 +14,7 @@ namespace PlanetEditorCS
         private float _radius;
 
         public List<ObjPtr> ObjPtrs; //public static List<ObjectPtr> ObjPtrs; //* copy from the object class 
-
+        
         //-----METHODS-----//
         public Planet() { }
 

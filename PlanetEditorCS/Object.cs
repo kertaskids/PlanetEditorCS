@@ -24,7 +24,7 @@ namespace PlanetEditorCS
         //public static List<Object> ObjPtr; //affects planet.cs L16  //* ; unsafe instead
         public struct ObjPtr : IEnumerable<Object>
         {
-            public List<Object> ObjPt;
+            public List<Object> ObjPt {get;set;}
         };
 
         //-----METHODS-----//
