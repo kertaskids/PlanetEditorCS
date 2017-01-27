@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Globalization;
+using PlanetEditorCS.Object;
 
 namespace PlanetEditorCS
 {
@@ -27,7 +28,7 @@ namespace PlanetEditorCS
 
                     try{
                         p = new Planet(name, pos, r);
-                        System.Console.WriteLine(p.obj.getName() + " has been created.");
+                        System.Console.WriteLine(p.getName() + " has been created.");
                     
                     }catch (Exception e)
                     {
@@ -44,12 +45,20 @@ namespace PlanetEditorCS
                     string[] input = System.Console.ReadLine().Split(' ');
                     c_type = input[0];
                     name = input[1];
-                    Object optr;
+
+
+                    Planet.ObjPtr obj; //PlanetEditorCS.Object.ObjPtr
+                    //Object optr;
+                    
                     if (c_type == "Lion") {
-                        optr = new Creature<Lion>(name)._object;
+                        obj.ObjPt.Add(new Creature<Lion>(name));
+                        //optr = new Creature<Lion>(name);
+                        Console.WriteLine("Created a creature ({0}-{1}).", c_type, name);
                     }
                     else if (c_type == "Plant"){
-                        optr = new Creature<Plant>(name)._object;
+                        obj.ObjPt.Add(new Creature<Plant>(name));
+                        //optr = new Creature<Plant>(name);
+                        Console.WriteLine("Created a creature ({0}-{1}).", c_type, name);
                     }else {
                         System.Console.WriteLine("You shall not pass!");
                         continue;
@@ -60,8 +69,9 @@ namespace PlanetEditorCS
                         System.Console.WriteLine("Please create planet first!");
                         continue;
                     }else {
-                        p.addObject(optr);
-                        System.Console.WriteLine(optr.getName()+" added");
+                        p.addObject(obj);
+                        //p.addObject(optr);
+                        System.Console.WriteLine(obj.ObjPt[0].getName()+" added");
                     }
                 }
                 else if (command.Equals("ro")) {
