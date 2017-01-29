@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +10,7 @@ namespace PlanetEditorCS
     class CreatureType {
         //-----METHODS-----//
         public CreatureType() {}
-        public virtual ~CreatureType() { }
+        //public virtual ~CreatureType() { }
         public virtual void Move() { }
         public virtual void Absorb() { }
         public virtual int DeadOrAlive() { return 0; }
@@ -46,23 +46,23 @@ namespace PlanetEditorCS
          */
 
         public Creature(Creature<T> src) { //*
-            Object(src.getName());
+            ObjectT(src.getName());
             _amount = src._amount;
             _p_implement = src._p_implement; 
         }
 
         public Creature(string name) { //*
-            Object(name);
+            ObjectT(name);
             _p_implement = Creature<T>.Instance._p_implement;
         }
 
-        public virtual ~Creature() {
+        /*public virtual ~Creature() {
             if (_p_implement != null){ //* ; null) {
                 _p_implement = default(T);
             }
-        }
+        }*/
 
-        public virtual void Update() { //*
+        new public virtual void Update() { //*
             Instance.creatureType.Move();
             Instance.creatureType.Absorb();
             _amount -= Instance.creatureType.DeadOrAlive();
