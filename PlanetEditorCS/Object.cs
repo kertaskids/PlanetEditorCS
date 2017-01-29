@@ -1,4 +1,5 @@
-﻿using System;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,6 +26,14 @@ namespace PlanetEditorCS
         public struct ObjPtr : IEnumerable<Object>
         {
             public List<Object> ObjPt {get;set;}
+
+            public IEnumerator<Object> GetEnumerator() {
+                return ((IEnumerable<Object>)ObjPt).GetEnumerator();
+            }
+
+            IEnumerator IEnumerable.GetEnumerator() {
+                return ((IEnumerable<Object>)ObjPt).GetEnumerator();
+            }
         };
 
         //-----METHODS-----//
@@ -49,7 +58,7 @@ namespace PlanetEditorCS
             _ID = s_next_ID++;
             _Name = name;
         }
-        public void Object(string name)
+        public void ObjectT(string name)
         {
             _ID = s_next_ID++;
             _Name = name;
@@ -59,13 +68,13 @@ namespace PlanetEditorCS
             _Name = src._Name;
             _ID = s_next_ID++;
         }
-        public void Object(Object src)
+        public void ObjectT(Object src)
         {
             _Name = src._Name;
             _ID = s_next_ID++;
         }
 
-        public virtual ~Object() { } //* return this; }
+        //public virtual ~Object() { } //* return this; }
 
         public uint getID() { 
             return _ID; 
