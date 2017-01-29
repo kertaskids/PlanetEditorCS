@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,13 +13,13 @@ namespace PlanetEditorCS
         private Coordinate _position;
         private float _radius;
 
-        public List<ObjPtr> ObjPtrs; //public static List<ObjectPtr> ObjPtrs; //* copy from the object class 
+        public List<ObjPtr> ObjPtrs = new List<ObjPtr>(); //public static List<ObjectPtr> ObjPtrs; //* copy from the object class 
         
         //-----METHODS-----//
         public Planet() { }
 
         public Planet(Planet src) { //*
-            Object(src.getName());
+            ObjectT(src.getName());
             foreach (ObjPtr op in src.ObjPtrs)
             {
                 ObjPtrs.Add(op);
@@ -29,7 +29,7 @@ namespace PlanetEditorCS
         public Planet(String name, float radius) { //*
             //handling an exception
             try {
-                Object(name);
+                ObjectT(name);
                 _position = new Coordinate();
                 _radius = radius;
                 
@@ -42,7 +42,7 @@ namespace PlanetEditorCS
         }
 
         public Planet(String name, Coordinate position, float radius) { //*
-            Object(name);
+            ObjectT(name);
             _position = position;
             _radius = radius;
             if (!radiusCheck())
@@ -75,7 +75,7 @@ namespace PlanetEditorCS
             return ObjPtrs.GetEnumerator();
             }*/
 
-        public virtual void Update(){ //*
+        new public virtual void Update(){ //*
             //* later
 
             foreach (ObjPtr optrs in ObjPtrs) {
