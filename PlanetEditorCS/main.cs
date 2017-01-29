@@ -1,10 +1,9 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Globalization;
-using PlanetEditorCS.Object;
 
 namespace PlanetEditorCS
 {
@@ -14,19 +13,22 @@ namespace PlanetEditorCS
         {
             string command = null;
             Planet p = null;
+            Console.WriteLine("Insert command : ");
+            command = System.Console.ReadLine();
 
             while (!command.Equals("exit")) // Loop indefinitely
             {
                 if (command.Equals("cp")) {
                     float r;
-                    Coordinate pos;
+                    Coordinate pos; //=new Coordinate();
                     string name;
                     string[] input = System.Console.ReadLine().Split(' ');
                     name = input[0];
                     pos = new Coordinate(float.Parse(input[1]), float.Parse(input[2]), float.Parse(input[3]));
                     r = float.Parse(input[4]);
 
-                    try{
+                    System.Console.WriteLine(input.Length+", Planet : "+name+","+ float.Parse(input[1]) + "," + float.Parse(input[2]) + "," + float.Parse(input[3]) + "," + float.Parse(input[4]));
+                    try {
                         p = new Planet(name, pos, r);
                         System.Console.WriteLine(p.getName() + " has been created.");
                     
@@ -45,9 +47,10 @@ namespace PlanetEditorCS
                     string[] input = System.Console.ReadLine().Split(' ');
                     c_type = input[0];
                     name = input[1];
-
+                    System.Console.WriteLine("type "+input[0]+", name "+input[1]);
 
                     Planet.ObjPtr obj; //PlanetEditorCS.Object.ObjPtr
+                    obj = new Object.ObjPtr();
                     //Object optr;
                     
                     if (c_type == "Lion") {
@@ -94,8 +97,11 @@ namespace PlanetEditorCS
                         p.Update();
                     }
                 }
+                Console.WriteLine("Insert command : ");
+                command = System.Console.ReadLine();
             }
 
+            
             //System.Console.ReadKey();
             return;
         }
@@ -103,21 +109,21 @@ namespace PlanetEditorCS
 
     class Lion : CreatureType {
         public Lion() { }
-        public virtual ~Lion() { }
-        public virtual void Move() { System.Console.WriteLine("Run Run Run"); }
-        public virtual void Absorb() { System.Console.WriteLine("Eat Eat Eat"); }
-        public virtual int DeadOrAlive() { System.Console.WriteLine("Alive"); return 0; }
-        public virtual bool Alive() { return true; }
-        public virtual int Birth() { return 0; }
+        //public virtual ~Lion() { }
+        new public virtual void Move() { System.Console.WriteLine("Run Run Run"); }
+        new public virtual void Absorb() { System.Console.WriteLine("Eat Eat Eat"); }
+        new public virtual int DeadOrAlive() { System.Console.WriteLine("Alive"); return 0; }
+        new public virtual bool Alive() { return true; }
+        new public virtual int Birth() { return 0; }
     }
 
     class Plant : CreatureType {
         public Plant() { }
-        public virtual ~Plant() { }
-        public virtual void Move() { System.Console.WriteLine("Plant cannot move :("); }
-        public virtual void Absorb() { System.Console.WriteLine("Growth"); }
-        public virtual int DeadOrAlive() { System.Console.WriteLine("Alive"); return 0; }
-        public virtual bool Alive() { return true; }
-        public virtual int Birth() { System.Console.WriteLine("Spread seeds"); return 0; }
+        //public virtual ~Plant() { }
+        new public virtual void Move() { System.Console.WriteLine("Plant cannot move :("); }
+        new public virtual void Absorb() { System.Console.WriteLine("Growth"); }
+        new public virtual int DeadOrAlive() { System.Console.WriteLine("Alive"); return 0; }
+        new public virtual bool Alive() { return true; }
+        new public virtual int Birth() { System.Console.WriteLine("Spread seeds"); return 0; }
     } 
 }
