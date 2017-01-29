@@ -13,7 +13,11 @@ namespace PlanetEditorCS
         {
             string command = null;
             Planet p = null;
-            Console.WriteLine("Insert command : ");
+            Console.WriteLine("Please initial command!");
+            Console.WriteLine("'cp' to create planet");
+            Console.WriteLine("'ac' to assign creature");
+            Console.WriteLine("'ro' assign id");
+            Console.WriteLine("'up' to update");
             command = System.Console.ReadLine();
 
             while (!command.Equals("exit")) // Loop indefinitely
@@ -22,6 +26,7 @@ namespace PlanetEditorCS
                     float r;
                     Coordinate pos; //=new Coordinate();
                     string name;
+                    Console.Write("Create Planet. Input -> name x y z radius : ");
                     string[] input = System.Console.ReadLine().Split(' ');
                     name = input[0];
                     pos = new Coordinate(float.Parse(input[1]), float.Parse(input[2]), float.Parse(input[3]));
@@ -44,6 +49,7 @@ namespace PlanetEditorCS
                 else if (command.Equals("ac")) {
                     string c_type;
                     string name;
+                    Console.Write("Assign Creature. Input -> type name : ");
                     string[] input = System.Console.ReadLine().Split(' ');
                     c_type = input[0];
                     name = input[1];
@@ -54,11 +60,17 @@ namespace PlanetEditorCS
                     //Object optr;
                     
                     if (c_type == "Lion") {
+                        if (obj.ObjPt == null) {
+                            obj.ObjPt = new List<Object>();
+                        }
                         obj.ObjPt.Add(new Creature<Lion>(name));
                         //optr = new Creature<Lion>(name);
                         Console.WriteLine("Created a creature ({0}-{1}).", c_type, name);
                     }
                     else if (c_type == "Plant"){
+                        if (obj.ObjPt == null) {
+                            obj.ObjPt = new List<Object>();
+                        }
                         obj.ObjPt.Add(new Creature<Plant>(name));
                         //optr = new Creature<Plant>(name);
                         Console.WriteLine("Created a creature ({0}-{1}).", c_type, name);
@@ -79,6 +91,7 @@ namespace PlanetEditorCS
                 }
                 else if (command.Equals("ro")) {
                     uint id;
+                    Console.Write("Assign ID. Input -> ID : ");
                     id = uint.Parse(System.Console.ReadLine());
                     if (p == null){
                         System.Console.WriteLine("Please create planet first!");
@@ -88,6 +101,7 @@ namespace PlanetEditorCS
                     }
                 }
                 else if (command.Equals("up")) {
+                    Console.WriteLine("Updating...");
                     if (p == null)
                     {
                         System.Console.WriteLine("Please create planet first!");
@@ -97,7 +111,7 @@ namespace PlanetEditorCS
                         p.Update();
                     }
                 }
-                Console.WriteLine("Insert command : ");
+                Console.Write("Insert command : ");
                 command = System.Console.ReadLine();
             }
 
