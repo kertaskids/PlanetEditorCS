@@ -2,6 +2,8 @@
 A Homework for converting c++ code to c#. 
 The original c++ codes can be found here : https://github.com/bachelorwhc/PlanetEditor 
 
+![Screenshot of the program](https://github.com/kertaskids/PlanetEditorCS/blob/master/Conversion%20HW.png)
+
 Answer for the question : 
 21 January 2017
  
