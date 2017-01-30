@@ -77,11 +77,13 @@ namespace PlanetEditorCS
 
         new public virtual void Update(){ //*
             //* later
-
+            System.Console.WriteLine("Updating...");
             foreach (ObjPtr optrs in ObjPtrs) {
+                System.Console.WriteLine("Enumerating...");
                 foreach (Object optr in optrs) {
+                    System.Console.WriteLine("Printing...");
                     //optrs.ObjPt.Remove(optr);
-                    System.Console.WriteLine("Obj ID : " + optr.getID() + ", Obj Name " + optr.getName());
+                    System.Console.WriteLine("Obj ID : " + optr.getID() + ", Obj Name : " + optr.getName());
                     optr.Update();
                     System.Console.WriteLine("");
                 }

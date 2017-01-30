@@ -13,11 +13,16 @@ namespace PlanetEditorCS
         {
             string command = null;
             Planet p = null;
-            Console.WriteLine("Please initial command!");
-            Console.WriteLine("'cp' to create planet");
-            Console.WriteLine("'ac' to assign creature");
-            Console.WriteLine("'ro' assign id");
+            Console.WriteLine("============================================================================");
+            Console.WriteLine("Welcome to the planet simulator. Following are available commands : ");
+            Console.WriteLine("----------------------------------------------------------------------------");
+            Console.WriteLine("'cp' to create planet. Then, input : <planet> <pos.x> <pos.y> <pos.z> <radius>");
+            Console.WriteLine("'ac' to assign creature.Then, input <creature type> <name>");
+            Console.WriteLine("'ro' assign ID. Then, input <object/creature ID>");
             Console.WriteLine("'up' to update");
+            Console.WriteLine("============================================================================");
+            Console.WriteLine("Please initial command!");
+
             command = System.Console.ReadLine();
 
             while (!command.Equals("exit")) // Loop indefinitely
@@ -101,7 +106,7 @@ namespace PlanetEditorCS
                     }
                 }
                 else if (command.Equals("up")) {
-                    Console.WriteLine("Updating...");
+                    //Console.WriteLine("Updating...");
                     if (p == null)
                     {
                         System.Console.WriteLine("Please create planet first!");
@@ -111,7 +116,7 @@ namespace PlanetEditorCS
                         p.Update();
                     }
                 }
-                Console.Write("Insert command : ");
+                Console.Write("\nInsert command : ");
                 command = System.Console.ReadLine();
             }
 
