@@ -10,7 +10,7 @@ You have no use I see you can see the code. Please continue with your Github URL
 >P.S. Execution must be Editor mode In short, please do with me like I do better than Hyun. The first class did not complete homework.  Please start directly from this training
 
 Below is the example of usage of the program : 
-![Screenshot of the program](https://github.com/kertaskids/UnityEditor---C-HW2/blob/master/PlanetEditor.PNG)
+![Screenshot of the program](https://github.com/kertaskids/PlanetEditorCS/blob/master/HW2/PlanetEditor.PNG)
 
 And here is the video :  
 [![Demo video](http://img.youtube.com/vi/YuxV3Bz-UZ8/0.jpg)](http://www.youtube.com/watch?v=YuxV3Bz-UZ8 "Video Title")
