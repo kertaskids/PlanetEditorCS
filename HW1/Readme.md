@@ -1,7 +1,7 @@
 The original c++ codes can be found here : https://github.com/bachelorwhc/PlanetEditor 
 
 Below is the example of usage of the program : 
-![Screenshot of the program](https://github.com/kertaskids/PlanetEditorCS/blob/master/PlanetEditor.PNG)
+![Screenshot of the program](https://github.com/kertaskids/PlanetEditorCS/blob/master/HW1/PlanetEditor.PNG)
 
 Answer for the question : 
 21 January 2017
